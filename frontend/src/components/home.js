@@ -1,6 +1,19 @@
 import React from 'react';
-import Product from './product';
+import {Product, ProductList} from './product';
+import { Header  } from './header';
 
+function Home() {
+  return (
+    <div className='App'>
+        <Header/>
+        <ProductList/>
+    </div>
+  )
+
+
+}
+
+/*
 function Home() {
   const productos = [
     { id: 1, nombre: 'Camiseta', descripcion: 'Camiseta de algodón orgánico', precio: 19.99 },
@@ -18,5 +31,5 @@ function Home() {
     </div>
   );
 }
-
+*/
 export default Home;

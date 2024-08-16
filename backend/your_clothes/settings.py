@@ -46,10 +46,12 @@ INSTALLED_APPS = [
     'modules.store',
     'modules.product',
     'rest_framework',
+    'corsheaders',
     
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,10 +59,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASSES': [
-    'rest_framework.permission.AllowAny'
+    'rest_framework.permissions.AllowAny'
 ]}
 
 ROOT_URLCONF = 'your_clothes.urls'
@@ -139,3 +142,20 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#CORS_ORIGIN_ALLOW_ALL = True  # Allow all origins (for development, adjust for production)
+
+CORS_ORIGIN_WHITELIST = [
+     'http://localhost:3000',
+ ]
+
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'DELETE',
+]
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
+]
